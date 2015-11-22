@@ -12,11 +12,7 @@ With a programming-based approach, I can go top-down, which means I can present 
 ideas right away.  By the end of the first chapter, you can
 break down a sound into its harmonics, modify the harmonics, and generate new sounds.
 
-###Run the code for this book on Binder: [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/AllenDowney/ThinkDSP)
-
-
-
-
+### Run the code for this book on Binder: [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/AllenDowney/ThinkDSP)
 
 This is a work in progress, so comments are welcome.
 
@@ -28,4 +24,18 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/
 The code is under the GNU GPL:
 GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
+### Code dependencies
 
+Including IPython notebook through jupyter:
+
+```
+pip install numpy scipy matplotlib pandas jupyter
+```
+
+### Book dependencies
+
+As on ArchLinux with AUR:
+
+```
+yaourt -S --needed texlive-most texlive-lang hevea evince
+```
