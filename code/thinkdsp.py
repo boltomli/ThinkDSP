@@ -432,7 +432,7 @@ class Spectrogram(object):
 
     def any_spectrum(self):
         """Returns an arbitrary spectrum from the spectrogram."""
-        return self.spec_map.itervalues().next()
+        return next(iter(self.spec_map.values()))
 
     @property
     def time_res(self):
@@ -450,7 +450,7 @@ class Spectrogram(object):
 
         returns: sequence of float times in seconds
         """
-        ts = sorted(self.spec_map.iterkeys())
+        ts = sorted(iter(self.spec_map.keys()))
         return ts
 
     def frequencies(self):
@@ -487,7 +487,7 @@ class Spectrogram(object):
         returns: Wave
         """
         res = []
-        for t, spectrum in sorted(self.spec_map.iteritems()):
+        for t, spectrum in sorted(iter(self.spec_map.items())):
             wave = spectrum.make_wave()
             n = len(wave)
             
