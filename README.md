@@ -12,7 +12,7 @@ With a programming-based approach, I can go top-down, which means I can present 
 ideas right away.  By the end of the first chapter, you can
 break down a sound into its harmonics, modify the harmonics, and generate new sounds.
 
-### Run the code for this book on Binder: [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/AllenDowney/ThinkDSP)
+### Run the code for this book on Binder: [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/boltomli/ThinkDSP)
 
 This is a work in progress, so comments are welcome.
 
