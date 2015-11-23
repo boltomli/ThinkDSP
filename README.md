@@ -37,14 +37,17 @@ pip install numpy scipy matplotlib pandas jupyter
 As on ArchLinux with AUR:
 
 ```
-yaourt -S --needed python-numpy python-scipy python-matplotlib python-pandas python-pillow python-scikit-image jupyter
+yaourt -S --needed python-numpy python-scipy python-matplotlib python-pandas \
+                   python-pillow python-scikit-image jupyter
 ```
 
-On Windows it's harder to install scipy. Install the others first. Download from [Unofficial Windows Binaries for Python Extension Packages](http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy) according to the environment, rename the downloaded .zip to .whl then install:
+On Windows it's harder to install scipy and scikit-image. Install the others first. Download wheel and requirement from [Unofficial Windows Binaries for Python Extension Packages](http://www.lfd.uci.edu/~gohlke/pythonlibs) according to the environment, rename the downloaded .zip to .whl then install:
 
 ```
-pip install numpy matplotlib pandas jupyter
+pip install numpy matplotlib pandas pillow jupyter
 pip install scipy-0.16.1-cp35-none-win_amd64.whl
+pip install networkx-1.9.1-py2.py3-none-any.whl
+pip install scikit_image-0.11.3-cp35-none-win_amd64.whl
 ```
 
 ### Book dependencies
