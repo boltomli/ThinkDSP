@@ -32,6 +32,12 @@ Including IPython notebook through jupyter:
 pip install numpy scipy matplotlib pandas jupyter
 ```
 
+On Windows it's harder to install scipy. Install the others first. Download from [Unofficial Windows Binaries for Python Extension Packages](http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy) according to the environment, rename the downloaded .zip to .whl. Then:
+
+```
+pip install scipy-0.16.1-cp35-none-win_amd64.whl
+```
+
 ### Book dependencies
 
 As on ArchLinux with AUR:
