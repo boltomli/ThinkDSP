@@ -37,7 +37,7 @@ pip install numpy scipy matplotlib pandas jupyter
 As on ArchLinux with AUR:
 
 ```
-yaourt -S --needed python-numpy python-scipy python-matplotlib python-pandas jupyter
+yaourt -S --needed python-numpy python-scipy python-matplotlib python-pandas python-pillow python-scikit-image jupyter
 ```
 
 On Windows it's harder to install scipy. Install the others first. Download from [Unofficial Windows Binaries for Python Extension Packages](http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy) according to the environment, rename the downloaded .zip to .whl then install:
