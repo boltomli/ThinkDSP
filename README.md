@@ -31,7 +31,7 @@ Including IPython notebook through jupyter:
 ```
 virtualenv venv
 source venv\bin\activate
-pip install numpy scipy matplotlib pandas jupyter
+pip install -r requirements.txt
 ```
 
 As on ArchLinux with AUR:
