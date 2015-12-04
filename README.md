@@ -38,7 +38,7 @@ As on ArchLinux with AUR:
 
 ```
 yaourt -S --needed python-numpy python-scipy python-matplotlib python-pandas \
-                   python-pillow python-scikit-image jupyter
+                   python-pillow python-scikit-image jupyter mathjax
 ```
 
 On Windows it's harder to install scipy and scikit-image. Install the others first. Download wheel and requirement from [Unofficial Windows Binaries for Python Extension Packages](http://www.lfd.uci.edu/~gohlke/pythonlibs) according to the environment, rename the downloaded .zip to .whl then install:
