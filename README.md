@@ -29,9 +29,8 @@ GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 Including IPython notebook through jupyter:
 
 ```
-virtualenv venv
-source venv\bin\activate
-pip install -r requirements.txt
+mkvirtualenv thinkdsp
+for i in `cat requirements.txt`; do pip install --upgrade $i; done
 ```
 
 As on ArchLinux with AUR:
