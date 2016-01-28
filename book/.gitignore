@@ -6,4 +6,5 @@ book.log
 book.out
 book.toc
 *.pdf
+*.gz
 
