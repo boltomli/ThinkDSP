@@ -5,7 +5,7 @@
 % http://creativecommons.org/licenses/by-nc/3.0/
 %
 
-\documentclass[12pt]{book}
+\documentclass[12pt,utf8]{ctexbook}
 \usepackage[width=5.5in,height=8.5in,
   hmarginratio=3:2,vmarginratio=1:1]{geometry}
 
@@ -93,12 +93,12 @@
 
 \begin{spacing}{3}
 {\huge Think DSP}\\
-{\Large Digital Signal Processing in Python}
+{\Large 用 Python 进行数字信号处理}
 \end{spacing}
 
 \vspace{0.25in}
 
-Version \theversion
+\theversion 版
 
 \vfill
 
@@ -118,12 +118,12 @@ Version \theversion
 
 \begin{spacing}{3}
 {\huge Think DSP}\\
-{\Large Digital Signal Processing in Python}
+{\Large 用 Python 进行数字信号处理}
 \end{spacing}
 
 \vspace{0.25in}
 
-Version \theversion
+\theversion 版
 
 \vspace{1in}
 
@@ -148,7 +148,7 @@ Allen B. Downey\\
 \pagebreak
 \thispagestyle{empty}
 
-Copyright \copyright ~2014 Allen B. Downey.
+版权所有 \copyright ~2014 Allen B. Downey.
 
 
 \vspace{0.2in}
@@ -178,11 +178,11 @@ License, which is available at \url{http://creativecommons.org/licenses/by-nc/3.
 
 {\large Allen B. Downey}
 
-Version \theversion
+\theversion 版
 
 \vspace{0.25in}
 
-Copyright 2012 Allen B. Downey
+版权所有 2014 Allen B. Downey
 
 \vspace{0.25in}
 
@@ -198,7 +198,7 @@ Unported License, which is available at
 \fi
 % END OF THE PART WE SKIP FOR PLASTEX
 
-\chapter{Preface}
+\chapter{前言}
 \label{preface}
 
 Signal processing is one of my favorite topics.  It is useful
@@ -226,7 +226,7 @@ technique first, and then how it works.
 This approach is more practical and, I hope you'll agree, more fun.
 
 
-\section{Who is this book for?}
+\section{本书面向的读者}
 
 The examples and supporting code for this book are in Python.  You
 should know core Python and you should be
@@ -250,7 +250,7 @@ I use some linear algebra, but I will explain it as we
 go along.
 
 
-\section{Using the code}
+\section{使用随书代码}
 \label{code}
 
 The code and sound samples used in this book are available from
@@ -334,7 +334,7 @@ Good luck, and have fun!
 
 
 
-\section*{Contributor List}
+\section*{贡献者列表}
 
 If you have a suggestion or correction, please send email to 
 {\tt downey@allendowney.com}.  If I make a change based on your
@@ -390,7 +390,7 @@ Both made many suggestions and corrections.
 \mainmatter
 
 
-\chapter{Sounds and signals}
+\chapter{声音与信号}
 \label{sounds}
 
 A {\bf signal} represents a quantity that varies in time,
@@ -966,7 +966,7 @@ factor and speeds up or slows down the wave by modifying {\tt ts} and
 \end{exercise}
 
 
-\chapter{Harmonics}
+\chapter{调和音}
 \label{harmonics}
 
 In this chapter I present several new waveforms; we will look and
@@ -1418,7 +1418,7 @@ modify it.
 \end{exercise}
 
 
-\chapter{Non-periodic signals}
+\chapter{非周期性信号}
 
 The signals we have worked with so far are periodic, which means
 that they repeat forever.  It also means that the frequency
@@ -2013,7 +2013,7 @@ spectrogram.  Can you identify different vowels?
 \end{exercise}
 
 
-\chapter{Noise}
+\chapter{噪音}
 
 In English, ``noise'' means an unwanted or unpleasant sound.  In the
 context of signal processing, it has two different senses:
@@ -2555,7 +2555,7 @@ between power and frequency.
 \end{exercise}
 
 
-\chapter{Autocorrelation}
+\chapter{自相干}
 
 In the previous chapter I characterized white noise as ``uncorrelated'',
 which means that each value is independent of the others, and Brownian
@@ -3069,7 +3069,7 @@ a different segment of the recording and running the examples again.
 
 
 
-\chapter{Discrete cosine transform}
+\chapter{离散余弦变换}
 \label{dct}
 
 The topic of this chapter is the {\bf Discrete Cosine
@@ -3670,7 +3670,7 @@ of a sound and how we perceive it?
 
 
 
-\chapter{Discrete Fourier Transform}
+\chapter{离散傅立叶变换}
 \label{dft}
 
 We've been using the discrete Fourier transform (DFT) since
@@ -4435,7 +4435,7 @@ You can read more about the FFT at
 \end{exercise}
 
 
-\chapter{Filtering and Convolution}
+\chapter{滤波与卷积}
 
 In this chapter I present one of the most important and useful
 ideas related to signal processing: the Convolution Theorem.
@@ -4993,7 +4993,7 @@ Solutions to these exercises are in {\tt chap08soln.ipynb}.
 
 
 
-\chapter{Differentiation and Integration}
+\chapter{微分与积分}
 \label{diffint}
 
 NOTE: THIS CHAPTER IS NOT READY FOR PRIME TIME!
@@ -5306,7 +5306,7 @@ we only need the slope, which for this example is -1.8.
 
 
 
-\chapter{LTI systems}
+\chapter{LTI（线性时不变）系统}
 \label{systems}
 
 This chapter presents the theory of signals and systems, using
@@ -5810,7 +5810,7 @@ QED
 Solutions to these exercises are in {\tt chap10soln.ipynb}.
 
 
-\chapter{Modulation and sampling}
+\chapter{调制与采样}
 
 In Section~\ref{aliasing} I defined the folding frequency, also called
 the Nyquist frequency, and I claimed that ???

@@ -17,7 +17,7 @@ PDFFLAGS = -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress \
 	ps2pdf $(PDFFLAGS) $<
 
 all:	book.tex
-	pdflatex book
+	lualatex book
 	makeindex book.idx
 	mv book.pdf thinkdsp.pdf
 	evince thinkdsp.pdf
@@ -75,7 +75,4 @@ oreilly:
 	cd $(OREILLY); git push
 
 clean:
-	rm -f *~ *.aux *.log *.dvi *.idx *.ilg *.ind *.toc
-
-
-
+	rm -f *~ *.aux *.log *.dvi *.idx *.ilg *.ind *.toc *.gz
