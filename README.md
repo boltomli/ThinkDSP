@@ -7,7 +7,7 @@ Allen B. Downey 所著 _Think DSP: Digital Signal Processing in Python_ 的 LaTe
 
 我写这本书的初衷是常见的数字信号处理教程均采取反向路径。大多数书（以及使用这些书的课程）自底而上地展示材料，从诸如相量（phasor）这样的数学抽象开始讲。
 
-采用基于编程的路径，我可以自顶而下地马上开始呈现最重要的概念。到第一节结束，你就可以把一段声音分解为其和声, 修改和声，并生成新的声音。
+采用基于编程的路径，我可以自顶而下地马上开始呈现最重要的概念。到第一节结束，你就可以把一段声音分解为其谐波，修改谐波，并生成新的声音。
 
 ### 目前 Binder 无法安装 Python 3 版的 matplotlib，见其 [issue 39](https://github.com/binder-project/binder/issues/39) [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/boltomli/ThinkDSP)
 
