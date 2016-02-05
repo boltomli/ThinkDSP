@@ -201,137 +201,109 @@ Unported License, which is available at
 \chapter{前言}
 \label{preface}
 
-Signal processing is one of my favorite topics.  It is useful
-in many areas of science and engineering, and if you understand
-the fundamental ideas, it provides insight into many things
-we see in the world, and especially the things we hear.
+信号处理是我最喜欢的主题之一，对许多科学和工程领域都十分有
+用。而且，如果理解了其基本概念，信号处理可以帮我们洞察世间
+万物，尤其是可以用听觉感知的事物。
 
-But unless you studied electrical or mechanical engineering, you
-probably haven't had a chance to learn about signal processing.  The
-problem is that most books (and the classes that use them) present the
-material bottom-up, starting with mathematical abstractions like
-phasors.  And they tend to be theoretical, with few applications and
-little apparent relevance.
+然而，若非你研修过电子或机械工程，你很可能并没有多少机会学
+到信号处理。困难在于大多数书（以及使用这些书的课程）都采取
+自底而上的方式，从诸如相量（phasor）这样的数学抽象讲起，而
+且偏向理论，几乎没有和实际相关的应用。
 
-The premise of this book is that if you know how to program, you
-can use that skill to learn other things, and have fun doing it.
+本书则假定：会编程就可以通过编程技巧学习其它知识，并从中收
+获乐趣。
 
-With a programming-based approach, I can present the most important
-ideas right away.  By the end of the first chapter, you can analyze
-sound recordings and other signals, and generate new sounds.  Each
-chapter introduces a new technique and an application you can
-apply to real signals.  At each step you learn how to use a
-technique first, and then how it works.
+采取基于编程的方式，我可以立即展现最重要的概念。学完第一章，
+你就可以分析声音的记录和其它信号，还能生成新的声音。每章都
+会引入一项新技术，并把它应用在真实信号上。每步你都将先学会
+如何使用一项技术，之后才是其工作原理。
 
-This approach is more practical and, I hope you'll agree, more fun.
+这种方式更加实用，而且（希望你能同意）也更有趣。
 
 
 \section{本书面向的读者}
 
-The examples and supporting code for this book are in Python.  You
-should know core Python and you should be
-familiar with object-oriented features, at least using objects if not
-defining your own.
+本书里的示例代码基于Python。你需要懂得基本的Python代码并熟
+悉面向对象。你无需自行设计对象，但至少要会使用对象。
 
-If you are not already familiar with Python, you might want to start
-with my other book, {\it Think Python}, which is an introduction to
-Python for people who have never programmed, or Mark
-Lutz's {\it Learning Python}, which might be better for people with
-programming experience.
+如果你不熟悉Python，也许可以先看我的另一本书，向从未编过程
+序的人介绍Python的{\it 《像计算机科学家一样思考Python》}。或
+者看看Mark Lutz的{\it 《 Python学习手册 》}，这本更适合有编程
+经验的人。
 
-I use NumPy and SciPy extensively.  If you are familiar with them
-already, that's great, but I will also explain the functions
-and data structures I use.
+我大量使用了NumPy和SciPy。如果你很熟悉这两个包，非常好。
+不管怎样，我都会解释用到的函数和数据结构。
 
-I assume that the reader knows basic mathematics, including complex
-numbers.  You don't need much calculus; if you understand the concepts
-of integration and differentiation, that will do.
-I use some linear algebra, but I will explain it as we
-go along.
+我假设读者掌握基本的数学知识，包括复数。不需要太多微积分，
+理解积分和微分的概念即可。我用到一些线性代数的时候会讲解。
 
 
 \section{使用随书代码}
 \label{code}
 
-The code and sound samples used in this book are available from
-\url{https://github.com/AllenDowney/ThinkDSP}.  Git is a version
-control system that allows you to keep track of the files that
-make up a project.  A collection of files under Git's control is
-called a {\bf repository}.  GitHub is a hosting service that provides
-storage for Git repositories and a convenient web interface.
+本书用到的代码和声音样例位于\url{https://github.com/AllenDowney/ThinkDSP}
+（中译本：\url{https://github.com/boltomli/ThinkDSP}）。Git版
+本控制系统让你能够追踪构成一个项目的文件。在Git控制下的一
+组文件的集合称为一个{\bf 仓库}。GitHub是一个提供在线Git仓库
+存储的服务商，其网络界面十分好用。
 \index{repository}
 \index{Git}
 \index{GitHub}
 
-The GitHub homepage for my repository provides several ways to
-work with the code:
+GitHub为我的仓库提供了几种利用代码的方法：
 
 \begin{itemize}
 
-\item You can create a copy of my repository
-on GitHub by pressing the {\sf Fork} button.  If you don't already
-have a GitHub account, you'll need to create one.  After forking, you'll
-have your own repository on GitHub that you can use to keep track
-of code you write while working on this book.  Then you can
-clone the repo, which means that you copy the files
-to your computer.
+\item 如果你还没有GitHub帐号，你得先创建一个。然后可以通过
+{\sf Fork}按钮在GitHub上建立一个我的仓库的拷贝。分支后，你
+就将在GitHub上拥有你自己的仓库来追踪代码。你可以克隆这个库，
+也就是说把文件拷贝到你的电脑上。
 \index{fork}
 
-\item Or you could clone
-my repository.  You don't need a GitHub account to do this, but you
-won't be able to write your changes back to GitHub.
+\item 你也可以克隆我的仓库，不需要GitHub帐号。不过你没法把
+你的改动写回到GitHub。
 \index{clone}
 
-\item If you don't want to use Git at all, you can download the files
-in a Zip file using the button in the lower-right corner of the
-GitHub page.
+\item 如果你并不想使用Git，还可以通过GitHub页面右侧的按钮
+下载包含全部文件的Zip文件。
 
 \end{itemize}
 
-All of the code is written to work in both Python 2 and Python 3
-with no translation.
+所有代码都能正常工作于Python 2和Python 3。
 
-I developed this book using Anaconda from
-Continuum Analytics, which is a free Python distribution that includes
-all the packages you'll need to run the code (and lots more).
-I found Anaconda easy to install.  By default it does a user-level
-installation, not system-level, so you don't need administrative
-privileges.  And it supports both Python 2 and Python 3.  You can
-download Anaconda from \url{http://continuum.io/downloads}.
-\index{Anaconda}
+我开发这本书用的是Continuum Analytics的Anaconda，这是个免费
+的Python发行版，包含了运行代码需要的全部包（以及更多）。我
+发现Anaconda安装很容易，默认情况下安装到用户目录而非系统目
+录，所以不需要管理员权限，而且支持Python 2和Python 3。你可以
+下载Anaconda：\url{http://continuum.io/downloads}.
+\index{Anaconda}。
 
-If you don't want to use Anaconda, you will need the following
-packages:
+如果你不想用Anaconda，你需要如下的包：
 
 \begin{itemize}
 
-\item NumPy for basic numerical computation, \url{http://www.numpy.org/};
+\item NumPy，基本的数字计算，\url{http://www.numpy.org/};
 \index{NumPy}
 
-\item SciPy for scientific computation,
-  \url{http://www.scipy.org/};
+\item SciPy，科学计算，\url{http://www.scipy.org/};
 \index{SciPy}
 
-\item matplotlib for visualization, \url{http://matplotlib.org/}.
+\item matplotlib，可视化，\url{http://matplotlib.org/}.
 \index{matplotlib}
 
 \end{itemize}
 
-Although these are commonly used packages, they are not included with
-all Python installations, and they can be hard to install in some
-environments.  If you have trouble installing them, I
-recommend using Anaconda or one of the other Python distributions
-that include these packages.
+尽管这些都是很常用的包，并非每个Python安装都包含了这些包，
+在有些环境下可能很难安装。如果你安装这些包有困难，我推荐
+使用Anaconda或者任一其它包含了这些包的Python发行版。
 \index{installation}
 
-Most exercises use Python scripts, but some also use the IPython
-notebook.  If you have not used IPython notebook before, I suggest
-you start with the documentation at
-\url{http://ipython.org/ipython-doc/stable/notebook/notebook.html}.
+大多数习题使用了Python脚本，也有些使用IPython notebook。如果
+你以前没用过IPython notebook，我建议你看看文档：
+\url{http://ipython.org/ipython-doc/stable/notebook/notebook.html}。
 \index{IPython}
 
-Good luck, and have fun!
-
+祝你好运，尽享乐趣！
 
 
 \section*{贡献者列表}
