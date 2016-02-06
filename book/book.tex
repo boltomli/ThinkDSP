@@ -5,7 +5,7 @@
 % http://creativecommons.org/licenses/by-nc/3.0/
 %
 
-\documentclass[12pt,utf8]{ctexbook}
+\documentclass[12pt,UTF8]{ctexbook}
 \usepackage[width=5.5in,height=8.5in,
   hmarginratio=3:2,vmarginratio=1:1]{geometry}
 
@@ -26,6 +26,8 @@
 \usepackage{upquote}
 \usepackage{fancyhdr}
 \usepackage[bookmarks]{hyperref}
+
+\setlength{\headheight}{15pt}
 
 \title{Think DSP}
 \author{Allen B. Downey}
@@ -3526,7 +3528,7 @@ dct.plot()
 \end{verbatim}
 
 The result is the DCT of a triangle wave at 400 Hz, shown in
-Figure~\ref{dct1}.  The values of the DCT can be positive or negative;
+Figure~\ref{fig.dct1}.  The values of the DCT can be positive or negative;
 a negative value in the DCT corresponds to a negated cosine or,
 equivalently, to a cosine shifted by 180 degrees.
 
