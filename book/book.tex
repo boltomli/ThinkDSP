@@ -5,7 +5,7 @@
 % http://creativecommons.org/licenses/by-nc/3.0/
 %
 
-\documentclass[12pt]{book}
+\documentclass[12pt,UTF8]{ctexbook}
 \usepackage[width=5.5in,height=8.5in,
   hmarginratio=3:2,vmarginratio=1:1]{geometry}
 
@@ -26,6 +26,8 @@
 \usepackage{upquote}
 \usepackage{fancyhdr}
 \usepackage[bookmarks]{hyperref}
+
+\setlength{\headheight}{15pt}
 
 \title{Think DSP}
 \author{Allen B. Downey}
@@ -94,12 +96,12 @@
 
 \begin{spacing}{3}
 {\huge Think DSP}\\
-{\Large Digital Signal Processing in Python}
+{\Large 用 Python 进行数字信号处理}
 \end{spacing}
 
 \vspace{0.25in}
 
-Version \theversion
+\theversion 版
 
 \vfill
 
@@ -119,12 +121,12 @@ Version \theversion
 
 \begin{spacing}{3}
 {\huge Think DSP}\\
-{\Large Digital Signal Processing in Python}
+{\Large 用 Python 进行数字信号处理}
 \end{spacing}
 
 \vspace{0.25in}
 
-Version \theversion
+\theversion 版
 
 \vspace{1in}
 
@@ -149,7 +151,7 @@ Allen B. Downey\\
 \pagebreak
 \thispagestyle{empty}
 
-Copyright \copyright ~2014 Allen B. Downey.
+版权所有 \copyright ~2014 Allen B. Downey.
 
 
 \vspace{0.2in}
@@ -179,11 +181,11 @@ License, which is available at \url{http://creativecommons.org/licenses/by-nc/3.
 
 {\large Allen B. Downey}
 
-Version \theversion
+\theversion 版
 
 \vspace{0.25in}
 
-Copyright 2012 Allen B. Downey
+版权所有 2014 Allen B. Downey
 
 \vspace{0.25in}
 
@@ -199,154 +201,124 @@ Unported License, which is available at
 \fi
 % END OF THE PART WE SKIP FOR PLASTEX
 
-\chapter{Preface}
+\chapter{前言}
 \label{preface}
 
-Signal processing is one of my favorite topics.  It is useful
-in many areas of science and engineering, and if you understand
-the fundamental ideas, it provides insight into many things
-we see in the world, and especially the things we hear.
+信号处理是我最喜欢的主题之一，对许多科学和工程领域都十分有
+用。而且，如果理解了其基本概念，信号处理可以帮我们洞察世间
+万物，尤其是可以用听觉感知的事物。
 
-But unless you studied electrical or mechanical engineering, you
-probably haven't had a chance to learn about signal processing.  The
-problem is that most books (and the classes that use them) present the
-material bottom-up, starting with mathematical abstractions like
-phasors.  And they tend to be theoretical, with few applications and
-little apparent relevance.
+然而，若非你研修过电子或机械工程，你很可能并没有多少机会学
+到信号处理。困难在于大多数书（以及使用这些书的课程）都采取
+自底而上的方式，从诸如相量（phasor）这样的数学抽象讲起，而
+且偏向理论，几乎没有和实际相关的应用。
 
-The premise of this book is that if you know how to program, you
-can use that skill to learn other things, and have fun doing it.
+本书则假定：会编程就可以通过编程技巧学习其它知识，并从中收
+获乐趣。
 
-With a programming-based approach, I can present the most important
-ideas right away.  By the end of the first chapter, you can analyze
-sound recordings and other signals, and generate new sounds.  Each
-chapter introduces a new technique and an application you can
-apply to real signals.  At each step you learn how to use a
-technique first, and then how it works.
+采取基于编程的方式，我可以立即展现最重要的概念。学完第一章，
+你就可以分析声音的记录和其它信号，还能生成新的声音。每章都
+会引入一项新技术，并把它应用在真实信号上。每步你都将先学会
+如何使用一项技术，之后才是其工作原理。
 
-This approach is more practical and, I hope you'll agree, more fun.
+这种方式更加实用，而且（希望你能同意）也更有趣。
 
 
-\section{Who is this book for?}
+\section{本书面向的读者}
 
-The examples and supporting code for this book are in Python.  You
-should know core Python and you should be
-familiar with object-oriented features, at least using objects if not
-defining your own.
+本书里的示例代码基于Python。你需要懂得基本的Python代码并熟
+悉面向对象。你无需自行设计对象，但至少要会使用对象。
 
-If you are not already familiar with Python, you might want to start
-with my other book, {\it Think Python}, which is an introduction to
-Python for people who have never programmed, or Mark
-Lutz's {\it Learning Python}, which might be better for people with
-programming experience.
+如果你不熟悉Python，也许可以先看我的另一本书，向从未编过程
+序的人介绍Python的{\it 《像计算机科学家一样思考Python》}。或
+者看看Mark Lutz的{\it 《 Python学习手册 》}，这本更适合有编程
+经验的人。
 
-I use NumPy and SciPy extensively.  If you are familiar with them
-already, that's great, but I will also explain the functions
-and data structures I use.
+我大量使用了NumPy和SciPy。如果你很熟悉这两个包，非常好。
+不管怎样，我都会解释用到的函数和数据结构。
 
-I assume that the reader knows basic mathematics, including complex
-numbers.  You don't need much calculus; if you understand the concepts
-of integration and differentiation, that will do.
-I use some linear algebra, but I will explain it as we
-go along.
+我假设读者掌握基本的数学知识，包括复数。不需要太多微积分，
+理解积分和微分的概念即可。我用到一些线性代数的时候会讲解。
 
 
-\section{Using the code}
+\section{使用随书代码}
 \label{code}
 
-The code and sound samples used in this book are available from
-\url{https://github.com/AllenDowney/ThinkDSP}.  Git is a version
-control system that allows you to keep track of the files that
-make up a project.  A collection of files under Git's control is
-called a ``repository''.  GitHub is a hosting service that provides
-storage for Git repositories and a convenient web interface.
+本书用到的代码和声音样例位于\url{https://github.com/AllenDowney/ThinkDSP}
+（中译本：\url{https://github.com/boltomli/ThinkDSP}）。Git版
+本控制系统让你能够追踪构成一个项目的文件。在Git控制下的一
+组文件的集合称为一个“仓库”。GitHub是一个提供在线Git仓库
+存储的服务商，其网络界面十分好用。
 \index{repository}
 \index{Git}
 \index{GitHub}
 
-The GitHub homepage for my repository provides several ways to
-work with the code:
+GitHub为我的仓库提供了几种利用代码的方法：
 
 \begin{itemize}
 
-\item You can create a copy of my repository
-on GitHub by pressing the {\sf Fork} button.  If you don't already
-have a GitHub account, you'll need to create one.  After forking, you'll
-have your own repository on GitHub that you can use to keep track
-of code you write while working on this book.  Then you can
-clone the repo, which means that you copy the files
-to your computer.
+\item 如果你还没有GitHub帐号，你得先创建一个。然后可以通过
+{\sf Fork}按钮在GitHub上建立一个我的仓库的拷贝。分支后，你就
+将在GitHub上拥有自己的仓库来追踪代码。你可以克隆这个库，
+也就是说把文件拷贝到你的电脑上。
 \index{fork}
 
-\item Or you could clone
-my repository.  You don't need a GitHub account to do this, but you
-won't be able to write your changes back to GitHub.
+\item 你也可以直接克隆我的仓库，不需要GitHub帐号。不过你无
+法把你的改动写回到GitHub。
 \index{clone}
 
-\item If you don't want to use Git at all, you can download the files
-in a Zip file using the button in the lower-right corner of the
-GitHub page.
+\item 如果你并不想使用Git，还可以通过GitHub页面右侧的按钮
+下载包含全部文件的Zip文件。
 
 \end{itemize}
 
-All of the code is written to work in both Python 2 and Python 3
-with no translation.
+所有代码都能正常工作于Python 2和Python 3。
 
-I developed this book using Anaconda from
-Continuum Analytics, which is a free Python distribution that includes
-all the packages you'll need to run the code (and lots more).
-I found Anaconda easy to install.  By default it does a user-level
-installation, not system-level, so you don't need administrative
-privileges.  And it supports both Python 2 and Python 3.  You can
-download Anaconda from \url{http://continuum.io/downloads}.
+我开发这本书用的是Continuum Analytics的Anaconda，这是个免费
+的Python发行版，包含了运行代码需要的全部包（以及更多）。我
+发现Anaconda安装很容易，默认情况下安装到用户目录而非系统目
+录，所以不需要管理员权限，而且支持Python 2和Python 3。你可以
+下载Anaconda：\url{http://continuum.io/downloads}。
 \index{Anaconda}
 
-If you don't want to use Anaconda, you will need the following
-packages:
+如果你不想用Anaconda，你需要如下的包：
 
 \begin{itemize}
 
-\item NumPy for basic numerical computation, \url{http://www.numpy.org/};
+\item NumPy，基本的数字计算，\url{http://www.numpy.org/};
 \index{NumPy}
 
-\item SciPy for scientific computation,
-  \url{http://www.scipy.org/};
+\item SciPy，科学计算，\url{http://www.scipy.org/};
 \index{SciPy}
 
-\item matplotlib for visualization, \url{http://matplotlib.org/}.
+\item matplotlib，可视化，\url{http://matplotlib.org/}.
 \index{matplotlib}
 
 \end{itemize}
 
-Although these are commonly used packages, they are not included with
-all Python installations, and they can be hard to install in some
-environments.  If you have trouble installing them, I
-recommend using Anaconda or one of the other Python distributions
-that include these packages.
+尽管这些包都很常用，仍然不是所有Python安装都包含了这些包，
+而且有些环境下可能很难单独安装。如果你安装这些包有困难，
+我推荐使用Anaconda或者其它包含这些包的Python发行版。
 \index{installation}
 
-Most exercises use Python scripts, but some also use the IPython
-notebook.  If you have not used IPython notebook before, I suggest
-you start with the documentation at
-\url{http://ipython.org/ipython-doc/stable/notebook/notebook.html}.
+大多数习题使用Python脚本，也有些使用IPython notebook。如果
+你以前没用过IPython notebook，我建议你看看文档：
+\url{http://ipython.org/ipython-doc/stable/notebook/notebook.html}。
 \index{IPython}
 
-Good luck, and have fun!
+祝你好运，尽享乐趣！
 
 
+\section*{贡献者列表}
 
-\section*{Contributor List}
-
-If you have a suggestion or correction, please send email to 
-{\tt downey@allendowney.com}.  If I make a change based on your
-feedback, I will add you to the contributor list
-(unless you ask to be omitted).
+如果你有建议或修订意见，请发信给{\tt downey@allendowney.com}
+（中译本独有问题请联系{\tt songl@outlook.com}）。如果我基于你
+的反馈做了修改，我将把你列入贡献者列表（除非你要求不要这样
+做）。
 \index{contributors}
 
-If you include at least part of the sentence the
-error appears in, that makes it easy for me to search.  Page and
-section numbers are fine, too, but not as easy to work with.
-Thanks!
+请至少给出错误所在的句子的一部分，这样比较容易搜索。页码和
+章节编号也可以，但并不太方便。谢谢！
 
 \small
 
@@ -437,7 +409,7 @@ bcjordan, rockwehrmann, marcgascon7, jcveliz.  Thank you all!
 \mainmatter
 
 
-\chapter{Sounds and signals}
+\chapter{声音与信号}
 \label{sounds}
 
 A {\bf signal} represents a quantity that varies in time,
@@ -469,7 +441,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp01}.
 
 
-\section{Periodic signals}
+\section{周期性信号}
 \label{violin}
 
 \begin{figure}
@@ -535,7 +507,7 @@ sound.  People usually perceive complex waveforms as rich, warm and
 more interesting than sinusoids.
 
 
-\section{Spectral decomposition}
+\section{谱的分析}
 
 \begin{figure}
 % sounds.py
@@ -602,7 +574,7 @@ signal by adding up sinusoids.
 Next we'll see how.
 
 
-\section{Signals}
+\section{信号}
 
 I wrote a Python module called {\tt thinkdsp.py} that contains classes
 and functions for working with signals and spectrums\footnote{The
@@ -720,7 +692,7 @@ complicated than the signal from the tuning fork, but less complicated
 than the violin.
 
 
-\section{Reading and writing Waves}
+\section{波的读和写}
 
 {\tt thinkdsp} provides \verb"read_wave", which reads a WAV
 file and returns a Wave:
@@ -750,7 +722,7 @@ It uses {\tt aplay} by default, but you can provide the
 name of another player.
 
 
-\section{Spectrums}
+\section{频谱}
 \label{spectrums}
 
 {\tt Wave} provides \verb"make_spectrum", which returns a
@@ -807,7 +779,7 @@ If you use IPython notebooks, you can use \verb"make_audio", which
 makes an Audio widget that plays the sound.
 
 
-\section{Wave objects}
+\section{波对象}
 
 \begin{figure}
 % http://yuml.me/edit/5294b377
@@ -861,7 +833,7 @@ You can read the documentation of these methods and others at
 \url{http://think-dsp.com/thinkdsp.html}.
 
 
-\section{Signal objects}
+\section{信号对象}
 \label{sigobs}
 
 Signal is a parent class that provides functions common to all
@@ -969,7 +941,7 @@ provides a framework for dealing with all kinds of signals, not
 just sinusoids.
 
 
-\section{Exercises}
+\section{习题}
 
 Before you begin these exercises, you should download the code
 for this book, following the instructions in Section~\ref{code}.
@@ -1014,7 +986,7 @@ factor and speeds up or slows down the wave by modifying {\tt ts} and
 \end{exercise}
 
 
-\chapter{Harmonics}
+\chapter{谐波}
 \label{harmonics}
 
 In this chapter I present several new waveforms; we will look and
@@ -1030,7 +1002,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp02}.
 
 
-\section{Triangle waves}
+\section{三角波}
 \label{triangle}
 
 A sinusoid contains only one frequency component, so its spectrum
@@ -1133,7 +1105,7 @@ approximately $1.7^2 = 2.9$.  This relationship is called the
 {\bf harmonic structure}.
 
 
-\section{Square waves}
+\section{方波}
 \label{square}
 
 \begin{figure}
@@ -1190,7 +1162,7 @@ The exercises at the end of this chapter give you a chance to
 explore other waveforms and other harmonic structures.
 
 
-\section{Aliasing}
+\section{锯齿}
 \label{aliasing}
 
 \begin{figure}
@@ -1276,7 +1248,7 @@ small peak at 2100 Hz in Figure~\ref{fig.square.100.2}, and the next
 one at 4300 Hz.
 
 
-\section{Computing the spectrum}
+\section{频谱的计算}
 
 We have seen the Wave method \verb"make_spectrum" several times.
 Here is the implementation (leaving out some details we'll get
@@ -1375,7 +1347,7 @@ and Spectrum classes work, but I have not explained how the Fast
 Fourier Transform works.  That will take a few more chapters.
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap02soln.ipynb}.
 
@@ -1466,7 +1438,7 @@ modify it.
 \end{exercise}
 
 
-\chapter{Non-periodic signals}
+\chapter{非周期性信号}
 \label{nonperiodic}
 
 The signals we have worked with so far are periodic, which means
@@ -1484,7 +1456,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp03}.
 
 
-\section{Linear chirp}
+\section{线性啁啾}
 
 \begin{figure}
 % chirp.py
@@ -1611,7 +1583,7 @@ phase is the integral of frequency.  When we used {\tt cumsum}
 to go from frequency to phase, we were approximating integration.
 
 
-\section{Exponential chirp}
+\section{指数啁啾}
 
 When you listen to this chirp, you might notice that the pitch
 rises quickly at first and then slows down.
@@ -1664,7 +1636,7 @@ You can listen to these examples in {\tt chap03.ipynb} and compare
 the linear and exponential chirps.  
 
 
-\section{Spectrum of a chirp}
+\section{啁啾的频谱}
 \label{sauron}
 
 \begin{figure}
@@ -1700,7 +1672,7 @@ For example, we cannot tell by looking at this spectrum whether
 the frequency went up or down, or both.
 
 
-\section{Spectrogram}
+\section{频谱图}
 
 \begin{figure}
 % chirp.py
@@ -1751,7 +1723,7 @@ cells.  This blurring reflects the limited resolution of the
 spectrogram.
 
 
-\section{The Gabor limit}
+\section{Gabor极限}
 \label{gabor}
 
 The {\bf time resolution} of the spectrogram is the duration of the
@@ -1789,7 +1761,7 @@ This tradeoff is called the {\bf Gabor limit} and it is a fundamental
 limitation of this kind of time-frequency analysis.
 
 
-\section{Leakage}
+\section{渗漏}
 
 \begin{figure}
 % chirp.py
@@ -1851,7 +1823,7 @@ In this example, leakage happens because we are using DFT on a segment
 that becomes discontinuous when we treat it as periodic.
 
 
-\section{Windowing}
+\section{加窗}
 
 \begin{figure}
 % chirp.py
@@ -1908,7 +1880,7 @@ and {\tt kaiser}.  One of the exercises at the end of this chapter
 asks you to experiment with these other windows.
 
 
-\section{Implementing spectrograms}
+\section{频谱图的实现}
 
 \begin{figure}
 % chirp.py
@@ -1988,7 +1960,7 @@ the y-axis.
 And that's how Spectrograms are implemented.
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap03soln.ipynb}.
 
@@ -2062,7 +2034,7 @@ spectrogram.  Can you identify different vowels?
 \end{exercise}
 
 
-\chapter{Noise}
+\chapter{噪声}
 
 In English, ``noise'' means an unwanted or unpleasant sound.  In the
 context of signal processing, it has two different senses:
@@ -2086,7 +2058,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp04}.
 
 
-\section{Uncorrelated noise}
+\section{不相干的噪声}
 
 \begin{figure}
 % noise.py
@@ -2188,7 +2160,7 @@ things we might like to know about a noise signal or its spectrum:
 \end{itemize}
 
 
-\section{Integrated spectrum}
+\section{整合频谱}
 
 For UU noise we can see the relationship between power and frequency
 more clearly by looking at the {\bf integrated spectrum}, which
@@ -2241,7 +2213,7 @@ visible frequencies is white.
 
 
 
-\section{Brownian noise}
+\section{布朗噪声}
 \label{brownian}
 
 \begin{figure}
@@ -2372,7 +2344,7 @@ that's confusing, so I won't use it.
 %TODO: refer back to this in the diff/int chapter
 
 
-\section{Pink Noise}
+\section{粉红噪声}
 \label{pink}
 
 \begin{figure}
@@ -2477,7 +2449,7 @@ The relationship between the exponent, $\beta$, and the slope
 of the spectrum is apparent in this figure.
 
 
-\section{Gaussian noise}
+\section{高斯噪声}
 
 \begin{figure}
 % noise.py
@@ -2551,7 +2523,7 @@ distribution has finite mean and standard deviation, and the number of
 samples is large.
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap04soln.ipynb}.
 
@@ -2626,7 +2598,7 @@ between power and frequency.
 \end{exercise}
 
 
-\chapter{Autocorrelation}
+\chapter{自相关}
 
 In the previous chapter I characterized white noise as ``uncorrelated'',
 which means that each value is independent of the others, and Brownian
@@ -2640,7 +2612,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp05}.
 
 
-\section{Correlation}
+\section{相关性}
 
 In general, correlation between variables means that if you know the
 value of one, you have some information about the other.  There are
@@ -2749,7 +2721,7 @@ correlation between waves:
 \end{verbatim}
 
 
-\section{Serial correlation}
+\section{序列相关性}
 
 Signals often represent measurements of quantities that vary in
 time.  For example, the sound signals we've worked with represent
@@ -2824,7 +2796,7 @@ noise, to $\beta=2$, which is Brownian, serial correlation
 ranges from 0 to almost 1, as shown in Figure~\ref{fig.autocorr3}.
 
 
-\section{Autocorrelation}
+\section{自相关}
 \label{autopink}
 
 In the previous section we computed the correlation between each
@@ -2866,7 +2838,7 @@ correlation is strong even for long lags; this phenomenon is called
 the signal depends on many preceding values.
 
 
-\section{Autocorrelation of periodic signals}
+\section{周期性信号的自相关}
 
 The autocorrelation of pink noise has interesting mathematical
 properties, but limited applications.  The autocorrelation of
@@ -2991,7 +2963,7 @@ compared with 100 Hz using the spectrum.  In musical terms, the
 expected error is about 30 cents (a third of a semitone).
 
 
-\section{Correlation as dot product}
+\section{用点积表示相关性}
 \label{dotproduct}
 
 I started the chapter with this definition of Pearson's
@@ -3032,7 +3004,7 @@ where $\theta$ is the angle between the vectors.  And that explains
 why Figure~\ref{fig.autocorr2} is a cosine curve.
 
 
-\section{Using NumPy}
+\section{NumPy的使用}
 \label{correlate}
 
 \begin{figure}
@@ -3099,7 +3071,7 @@ use it to estimate the fundamental period of a signal, and two
 ways to compute it.
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap05soln.ipynb}.
 
@@ -3150,7 +3122,7 @@ perception works (at least, to the degree that we know).  Watch it at
 
 
 
-\chapter{Discrete cosine transform}
+\chapter{离散余弦变换}
 \label{dct}
 
 The topic of this chapter is the {\bf Discrete Cosine
@@ -3190,7 +3162,7 @@ Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp06}.
 
 
-\section{Synthesis}
+\section{声音的合成}
 \label{synth1}
 
 Suppose I give you a list of amplitudes and a list of frequencies,
@@ -3241,7 +3213,7 @@ help much with {\bf analysis}, which is the inverse problem: given the
 wave, how do we identify the frequency components and their amplitudes?
 
 
-\section{Synthesis with arrays}
+\section{使用数组合成声音}
 \label{synthesis}
 
 \begin{figure}
@@ -3331,7 +3303,7 @@ $t$ is a vector of times, $f$ is a vector of frequencies, and
 $\otimes$ is the symbol for the outer product of two vectors.
 
 
-\section{Analysis}
+\section{声音的分析}
 \label{analysis}
 
 Now we are ready to solve the analysis problem.  Suppose I give you
@@ -3394,7 +3366,7 @@ system of equations takes time proportional to $n^3$, where $n$ is
 the number of columns in $M$.  We can do better.
 
 
-\section{Orthogonal matrices}
+\section{正交矩阵}
 
 One way to solve linear systems is by inverting matrices.  The
 inverse of a matrix $M$ is written $M^{-1}$, and it has the property
@@ -3485,7 +3457,7 @@ But sadly, $M$ is not orthogonal.  If we compute $M^TM$, we get:
 And that's not the identity matrix.
 
 
-\section{DCT-IV}
+\section{DCT-IV（离散余弦变换-第四种形式）}
 \label{dctiv}
 
 But if we choose {\tt ts} and {\tt fs} carefully,
@@ -3589,7 +3561,7 @@ difference between {\tt amps} and {\tt amps2} is about {\tt 1e-16},
 which is what we expect due to floating-point errors.
 
 
-\section{Inverse DCT}
+\section{IDCT（负离散余弦转换）}
 
 Finally, notice that {\tt analyze2} and {\tt synthesize2} are almost
 identical.  The only difference is that {\tt analyze2} divides the
@@ -3616,7 +3588,7 @@ max(abs(amps - amps2))
 Again, the biggest difference is about {\tt 1e-16}.
 
 
-\section{The Dct class}
+\section{Dct类}
 
 \begin{figure}
 % dct.py
@@ -3684,7 +3656,7 @@ Be default, the inverse DCT doesn't normalize the result, so we have
 to divide through by $2N$.
 
 
-\section{Exercises}
+\section{习题}
 
 For the following exercises, I provide some starter code in
 {\tt chap06starter.ipynb}.
@@ -3751,7 +3723,7 @@ of a sound and how we perceive it?
 
 
 
-\chapter{Discrete Fourier Transform}
+\chapter{离散傅立叶变换}
 \label{dft}
 
 We've been using the discrete Fourier transform (DFT) since
@@ -3788,7 +3760,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp07}.
 
 
-\section{Complex exponentials}
+\section{复指数}
 
 One of the more interesting moves in mathematics is the generalization
 of an operation from one type to another.  For example, factorial is a
@@ -3889,7 +3861,7 @@ This example confirms that $e^{i \phi}$ is a complex number with
 magnitude 1 and angle $\phi$ radians.
 
 
-\section{Complex signals}
+\section{复信号}
 
 If $\phi(t)$ is a function of time, $e^{i \phi(t)}$ is also a function
 of time.  Specifically,
@@ -3943,7 +3915,7 @@ This example evaluates the signal at 4 places equally spaced between
 0 and 1 second.  The resulting samples are complex numbers.
 
 
-\section{The synthesis problem}
+\section{声音合成的问题}
 
 Just as we did with real sinusoids, we we can create compound signals
 by adding up complex sinusoids with different frequencies.  And that
@@ -4030,7 +4002,7 @@ To our ears, they sound the same (in general, we don't hear
 phase offsets).
 
 
-\section{Synthesis with matrices}
+\section{用矩阵合成声音}
 \label{synthmat}
 
 As we saw in Section~\ref{synthesis}, we can also express the synthesis
@@ -4126,7 +4098,7 @@ one that handles complex amplitudes -- we are ready for the analysis
 problem.
 
 
-\section{The analysis problem}
+\section{声音分析的问题}
 
 The analysis problem is the inverse of the synthesis problem: given a
 sequence of samples, $y$, and knowing the frequencies
@@ -4168,7 +4140,7 @@ each component has a small imaginary part due to
 floating-point errors.
 
 
-\section{Efficient analysis}
+\section{高效的分析}
 
 Unfortunately, solving a linear system of equations is slow.  For the
 DCT, we were able to speed things up by choosing {\tt fs} and {\tt
@@ -4235,7 +4207,7 @@ arithmetic.
 \end{verbatim}
 
 
-\section{DFT}
+\section{DFT（离散傅立叶变换）}
 \label{dftsection}
 
 As a function, {\tt analyze2} would be hard to use because it
@@ -4328,7 +4300,7 @@ weird convention.  For practical purposes it doesn't really
 matter.
 
 
-\section{The DFT is periodic}
+\section{DFT具有周期性}
 
 In this chapter I presented the DFT in the form of matrix multiplication.
 We compute the synthesis matrix, $M$, and the analysis matrix, $M^*$.
@@ -4379,7 +4351,7 @@ the wave array, $y$, and a complex exponential at a particular
 frequency.
 
 
-\section{DFT of real signals}
+\section{真实信号的DFT}
 
 \begin{figure}
 % dft.py
@@ -4456,7 +4428,7 @@ and that's exactly what {\tt np.fft.rfft} does.
 
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap07soln.ipynb}.
 
@@ -4520,7 +4492,7 @@ You can read more about the FFT at
 \end{exercise}
 
 
-\chapter{Filtering and Convolution}
+\chapter{滤波与卷积}
 
 In this chapter I present one of the most important and useful
 ideas related to signal processing: the Convolution Theorem.
@@ -4533,7 +4505,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp08}.
 
 
-\section{Smoothing}
+\section{平滑}
 \label{smoothing}
 
 \begin{figure}
@@ -4646,7 +4618,7 @@ are less abrupt, and the corners less sharp.  If you listen
 to the smoothed signal, it sounds less buzzy and slightly muffled.
 
 
-\section{Convolution}
+\section{卷积}
 \label{convolution}
 
 The operation we just computed is called {\bf convolution},
@@ -4705,7 +4677,7 @@ coming up very soon.
 \end{itemize}
 
 
-\section{The frequency domain}
+\section{频域}
 
 \begin{figure}
 % convolution4.py
@@ -4773,7 +4745,7 @@ the cutoff, the ratio bounces around between 0 and 0.2.
 What's up with that?
 
 
-\section{The convolution theorem}
+\section{卷积定理}
 \label{convtheorem}
 
 \begin{figure}
@@ -4828,7 +4800,7 @@ filter than can be expressed by element-wise multiplication in
 the frequency domain, there is a corresponding window.
 
 
-\section{Gaussian filter}
+\section{高斯滤波器}
 
 \begin{figure}
 % convolution7.py
@@ -4885,7 +4857,7 @@ Gaussian curve.  So the ratio drops off in proportion to $\exp(-f^2)$,
 which is much faster than $1/f$.
 
 
-\section{Efficient convolution}
+\section{高效的卷积}
 \label{effconv}
 
 One of the reasons the FFT is such an important algorithm is that,
@@ -4962,7 +4934,7 @@ agrees with \verb"fft_convolve" with about 12 digits of precision.
 \end{verbatim}
 
 
-\section{Efficient autocorrelation}
+\section{高效的自相关}
 
 \begin{figure}
 % convolution.py
@@ -5040,7 +5012,7 @@ the result.  This padding and trimming is a nuisance, but that's why
 libraries like NumPy provide functions to do it for you.
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap08soln.ipynb}.
 
@@ -5084,7 +5056,7 @@ Experiment with a few different windows and a few different sizes.
 
 
 
-\chapter{Differentiation and Integration}
+\chapter{微分与积分}
 \label{diffint}
 
 This chapter picks up where the previous chapter left off,
@@ -5100,7 +5072,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp09}.
 
 
-\section{Finite differences}
+\section{有限差分}
 \label{diffs}
 
 In Section~\ref{smoothing}, we applied a smoothing window to
@@ -5168,7 +5140,7 @@ noise.
 \end{figure}
 
 
-\section{The frequency domain}
+\section{频域}
 
 Computing the difference
 between successive elements is the same as convolution with
@@ -5200,7 +5172,7 @@ frequency, linearly for low frequencies, and then sublinearly after
 that.  In the next section, we'll see why.
 
 
-\section{Differentiation}
+\section{微分}
 \label{effdiff}
 
 The window we used in the previous section is a
@@ -5354,7 +5326,7 @@ In particular, it is useful for the analysis of linear, time-invariant
 systems, which is coming up in Chapter~\ref{systems}.
 
 
-\section{Integration}
+\section{积分}
 
 \begin{figure}
 % diff_int.py
@@ -5646,7 +5618,7 @@ same scale, use a wave with framerate 1.
 
 
 
-\chapter{LTI systems}
+\chapter{LTI（线性时不变）系统}
 \label{systems}
 
 This chapter presents the theory of signals and systems, using
@@ -5660,7 +5632,7 @@ You can also view it at \url{http://tinyurl.com/thinkdsp10}.
 
 
 
-\section{Signals and systems}
+\section{信号与系统}
 
 In the context of signal processing, a {\bf system} is an abstract
 representation of anything that takes a signal as input and produces
@@ -6241,7 +6213,7 @@ Finally, taking the DFT of both sides yields the Convolution Theorem:
 QED
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap10soln.ipynb}.
 
@@ -6286,7 +6258,7 @@ to the impulse response and multiplying by the DFT of the recording.
 
 
 
-\chapter{Modulation and sampling}
+\chapter{调制与采样}
 
 In Section~\ref{aliasing} we saw that when a signal is sampled at
 10,000 Hz, a component at 5500 Hz is indistinguishable from a
