@@ -1,5 +1,14 @@
 LATEX = latex
 
+LATEX_OS = lualatex
+ifneq ($(OS),Windows_NT)
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		LATEX_OS = pdflatex
+	endif
+endif
+
+
 DVIPS = dvips
 
 PDFFLAGS = -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress \
@@ -17,7 +26,7 @@ PDFFLAGS = -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress \
 	ps2pdf $(PDFFLAGS) $<
 
 all:	book.tex
-	lualatex book
+	$(LATEX_OS) book
 	makeindex book.idx
 	mv book.pdf thinkdsp.pdf
 	evince thinkdsp.pdf
