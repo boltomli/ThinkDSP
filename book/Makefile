@@ -1,13 +1,6 @@
 LATEX = latex
 
 LATEX_OS = lualatex
-ifneq ($(OS),Windows_NT)
-	UNAME_A := $(shell uname -a)
-	ifneq (, $(findstring Debian, $(UNAME_A)))
-		LATEX_OS = pdflatex
-	endif
-endif
-
 
 DVIPS = dvips
 
