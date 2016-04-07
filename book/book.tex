@@ -5399,7 +5399,7 @@ If we provide this ``constant of integration'', the results are
 identical, which confirms that this integration filter is the correct
 inverse of the differentiation filter.
 
-\section{Cumulative sum}
+\section{累积和}
 \label{cumsum}
 
 In the same way that the diff operator approximates differentiation,
@@ -5525,7 +5525,7 @@ the Convolution Theorem works!  But note that this demonstration only
 works with periodic signals.
 
 
-\section{Integrating noise}
+\section{累积噪声}
 
 In Section~\ref{brownian}, we generated Brownian noise by computing the
 cumulative sum of white noise.
@@ -5563,7 +5563,7 @@ differentiation).
 
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap09soln.ipynb}.
 
@@ -5750,7 +5750,7 @@ time because the system is linear, so simultaneous tests don't
 interfere with each other.
 
 
-\section{Windows and filters}
+\section{窗口与滤波器}
 \label{winfilt}
 
 To show why this kind of system characterization works, I
@@ -5820,7 +5820,7 @@ convolution window that characterizes the system.
 \end{itemize}
 
 
-\section{Acoustic response}
+\section{声学响应}
 \label{response}
 
 To characterize the acoustic response of a room or open space, a
@@ -5922,7 +5922,7 @@ the room where the violin was recorded and applied the inverse
 of that transfer function first.
 
 
-\section{Systems and convolution}
+\section{系统与卷积}
 \label{sysconv}
 
 \begin{figure}
@@ -6101,7 +6101,7 @@ windows, now you know the reason: the definition of convolution
 appears naturally in the response of an LTI system to a signal.
 
 
-\section{Proof of the Convolution Theorem}
+\section{卷积定理的证明}
 
 Well, I've put it off long enough.  It's time to prove the Convolution
 Theorem (CT), which states:
@@ -6277,7 +6277,7 @@ repository for this book (see Section~\ref{code}).
 You can also view it at \url{http://tinyurl.com/thinkdsp11}.
 
 
-\section{Convolution with impulses}
+\section{带冲激的卷积}
 
 As we saw in Section~\ref{sysconv}, convolution of a signal with
 a series of impulses has the effect of making shifted, scaled
@@ -6327,7 +6327,7 @@ with impulses makes shifted, scaled copies.  This result will be
 useful in the next section.
 
 
-\section{Amplitude modulation}
+\section{幅度调制}
 \label{am}
 
 \begin{figure}
@@ -6434,7 +6434,7 @@ transmitting and receiving the broadcast signal.  We have to amplify
 the result anyway, another factor of 2 is not an issue.
 
 
-\section{Sampling}
+\section{采样}
 
 \begin{figure}
 % sampling.py
@@ -6567,7 +6567,7 @@ signal's spectrum.
 \end{itemize}
 
 
-\section{Aliasing}
+\section{混叠}
 
 \begin{figure}
 % sampling.py
@@ -6626,7 +6626,7 @@ of the energy, but the shape of the spectrum is almost exactly what we
 started with.  And if we convert back to a wave, it sounds the same.
 
 
-\section{Interpolation}
+\section{插值}
 
 \begin{figure}
 % sampling.py
@@ -6706,7 +6706,7 @@ signal exactly, as long as it contains no energy at frequencies
 above $f/2$.  
 
 
-\section{Exercises}
+\section{习题}
 
 Solutions to these exercises are in {\tt chap11soln.ipynb}.
 
