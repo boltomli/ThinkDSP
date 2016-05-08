@@ -283,7 +283,7 @@ class _SpectrumParent:
 
         returns: sorted list of (amplitude, frequency) pairs
         """
-        t = zip(self.amps, self.fs)
+        t = list(zip(self.amps, self.fs))
         t.sort(reverse=True)
         return t
 
@@ -592,7 +592,7 @@ class Spectrogram:
         returns: Wave
         """
         res = []
-        for t, spectrum in sorted(iter(self.spec_map.items())):
+        for t, spectrum in sorted(self.spec_map.items()):
             wave = spectrum.make_wave()
             n = len(wave)
             

@@ -46,7 +46,7 @@ class _Brewer(object):
     # lists that indicate which colors to use depending on how many are used
     which_colors = [[],
                     [1],
-                    [1, 3],
+                    [0, 4],
                     [0, 2, 4],
                     [0, 2, 4, 6],
                     [0, 2, 3, 5, 6],
@@ -140,8 +140,8 @@ def PrePlot(num=None, rows=None, cols=None):
 
     # resize the image, depending on the number of rows and cols
     size_map = {(1, 1): (8, 6),
-                (1, 2): (14, 6),
-                (1, 3): (14, 6),
+                (1, 2): (12, 6),
+                (1, 3): (12, 6),
                 (2, 2): (10, 10),
                 (2, 3): (16, 10),
                 (3, 1): (8, 10),
