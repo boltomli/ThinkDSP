@@ -1,5 +1,4 @@
-ThinkDSP
-========
+# ThinkDSP
 
 Allen B. Downey 所著 _Think DSP: Digital Signal Processing in Python_ 的 LaTeX 源文件 _中译_ 及 Python 代码。
 
@@ -9,7 +8,7 @@ Allen B. Downey 所著 _Think DSP: Digital Signal Processing in Python_ 的 LaTe
 
 采用基于编程的路径，我可以自顶而下地马上开始呈现最重要的概念。到第一节结束，你就可以把一段声音分解为其谐波，修改谐波，并生成新的声音。
 
-### 目前 Binder 无法安装 Python 3 版的 matplotlib，见其 [issue 39](https://github.com/binder-project/binder/issues/39) [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/boltomli/ThinkDSP)
+## 目前 Binder 无法安装 Python 3 版的 matplotlib，见其 [issue 39](https://github.com/binder-project/binder/issues/39) [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/boltomli/ThinkDSP)
 
 本书尚在写作中，欢迎提出意见。
 
@@ -21,40 +20,33 @@ Allen B. Downey 所著 _Think DSP: Digital Signal Processing in Python_ 的 LaTe
 
 [GNU GPLv3](http://www.gnu.org/licenses/gpl.html)
 
-### 代码依赖
+## 代码依赖
 
-```
-mkvirtualenv thinkdsp
+``` shell
 for i in `cat requirements.txt`; do pip install --upgrade $i; done
+jupyter nbextension enable --py --sys-prefix widgetsnbextension
 ```
 
 在 ArchLinux 中亦可用：
 
-```
+``` shell
 pacman -S --needed python-numpy python-scipy python-matplotlib python-pandas \
                    python-pillow python-scikit-image jupyter mathjax
 ```
 
-在 Windows 中安装 scipy 和 scikit-image 较复杂。以 Python 3.5 为例，安装好其它包后，从 [Unofficial Windows Binaries for Python Extension Packages](http://www.lfd.uci.edu/~gohlke/pythonlibs) 下载并单独安装如下：
+在 Windows 中安装 scipy 和 scikit-image 较复杂，建议使用类似 [Anaconda](https://www.continuum.io) 这样的管理工具。
 
-```
-pip install numpy matplotlib pandas pillow jupyter
-pip install scipy-0.16.1-cp35-none-win_amd64.whl
-pip install networkx-1.9.1-py2.py3-none-any.whl
-pip install scikit_image-0.11.3-cp35-none-win_amd64.whl
-```
-
-### 书的依赖
+## 书的依赖
 
 在 ArchLinux 中可用：
 
-```
+``` shell
 pacman -S --needed texlive-most texlive-lang hevea evince
 ```
 
-###Freesound
+## Freesound
 
-Special thanks to Freesound (http://freesound.org), which is the source of many of the
+Special thanks to [Freesound](http://freesound.org), which is the source of many of the
 sound samples I use in this book, and to the Freesound users who
 uploaded those sounds.  I include some of their wave files in
 the GitHub repository for this book, using the original file
