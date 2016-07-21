@@ -1,6 +1,6 @@
 LATEX = latex
 
-LATEX_OS = lualatex
+LATEX_OS = xelatex
 
 DVIPS = dvips
 
