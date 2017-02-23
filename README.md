@@ -23,8 +23,9 @@ Allen B. Downey 所著 _Think DSP: Digital Signal Processing in Python_ 的 LaTe
 ## 代码依赖
 
 ``` shell
-for i in `cat requirements.txt`; do pip install --upgrade $i; done
-jupyter nbextension enable --py --sys-prefix widgetsnbextension
+for i in `cat requirements.txt`; do pip install --upgrade --user $i; done
+sudo -s -H
+pip install -U jupyter && jupyter nbextension enable --py --sys-prefix widgetsnbextension && exit
 ```
 
 在 ArchLinux 中亦可用：
