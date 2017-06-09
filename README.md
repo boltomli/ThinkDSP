@@ -8,7 +8,7 @@ Allen B. Downey 所著 _Think DSP: Digital Signal Processing in Python_ 的 LaTe
 
 采用基于编程的路径，我可以自顶而下地马上开始呈现最重要的概念。到第一节结束，你就可以把一段声音分解为其谐波，修改谐波，并生成新的声音。
 
-## 目前 Binder 无法安装 Python 3 版的 matplotlib，见其 [issue 39](https://github.com/binder-project/binder/issues/39) [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/boltomli/ThinkDSP)
+### 目前 Binder 无法安装 Python 3 版的 matplotlib，见其 [issue 39](https://github.com/binder-project/binder/issues/39) [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org/repo/boltomli/ThinkDSP)
 
 本书尚在写作中，欢迎提出意见。
 
@@ -45,7 +45,7 @@ pacman -S --needed python-numpy python-scipy python-matplotlib python-pandas \
 pacman -S --needed texlive-most texlive-lang hevea evince
 ```
 
-## Freesound
+### Freesound
 
 Special thanks to [Freesound](http://freesound.org), which is the source of many of the
 sound samples I use in this book, and to the Freesound users who
